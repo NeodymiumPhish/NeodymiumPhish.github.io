@@ -22,8 +22,12 @@ layout: default
       {% endfor %}
     </div>
   </div>
-    
+
+
+
   <div class="entry">
+    {% include toc.html content=page.content skip_toc=page.skip_toc%}
+    
     {{ content }}
   </div>
 
