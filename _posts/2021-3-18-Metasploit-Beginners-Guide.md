@@ -17,7 +17,7 @@ As you probably already know, Metasploit is an amazing tool/framework for offens
 ### Table of Contents
 {:.no_toc}
 
-* TOC
+1. TOC
 {:toc}
 
 
