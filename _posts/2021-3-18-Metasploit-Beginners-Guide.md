@@ -8,13 +8,20 @@ categories: [Beginner, Instructional, Metasploit]
 
 
 ## Introduction
+{:.no_toc}
 
 As you probably already know, Metasploit is an amazing tool/framework for offensive exercises, audits, and penetration tests. It includes functionality for exploit development and integration of plugins from all sorts of other tools. I built this guide in early 2020 to aide co-workers in understanding its functionality and help them in experimenting with in on CTF events and online cyber challenges, so I hope it's useful to others here interested in understanding the basics and building from there. For further reading, check the sources at the bottom of the guide!
 
 <!--more-->
 
-* Table of Contents
+### Table of Contents
+{:.no_toc}
+
+* TOC
 {:toc}
+
+
+## Primer - Metasploit
 
 ```bash
 msfconsole [options]
