@@ -3,14 +3,18 @@ layout: post
 title: Beginner's Guide to Metasploit
 excerpt_separator: <!--more-->
 categories: [Beginner, Instructional, Metasploit]
-skip_toc: false
 ---
+
 
 
 ## Introduction
 
 As you probably already know, Metasploit is an amazing tool/framework for offensive exercises, audits, and penetration tests. It includes functionality for exploit development and integration of plugins from all sorts of other tools. I built this guide in early 2020 to aide co-workers in understanding its functionality and help them in experimenting with in on CTF events and online cyber challenges, so I hope it's useful to others here interested in understanding the basics and building from there. For further reading, check the sources at the bottom of the guide!
 
+<!--more-->
+
+* Do not remove this line (it will not be displayed)
+{:toc}
 
 ```bash
 msfconsole [options]
@@ -18,7 +22,6 @@ msfconsole [options]
 
 To see the help page within Metasploit, simply type `?`.  If you want help with a specific command in Metasploit, such as the 'set' or 'sessions' command, just append the command after the `?`
 
-<!--more-->
 
 ```
 - msf5 > ? set
