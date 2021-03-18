@@ -471,9 +471,8 @@ With the EternalBlue exploit in particular, it plays with the target's buffer un
 
 Now, having a shell is awesome, and we can use this to do all sorts of things, but we're limited to the level of access of the process we're attached to, and it's difficult to create persistence.  For these reasons, MSF has Meterpreter!  
 
-```
-Meterpreter is an advanced, dynamically extensible payload that uses in-memory DLL injection stagers and is extended over the network at runtime. It communicates over the stager socket and provides a comprehensive client-side Ruby API. It features command history, tab completion, channels, and more.
-```
+> Meterpreter is an advanced, dynamically extensible payload that uses in-memory DLL injection stagers and is extended over the network at runtime. It communicates over the stager socket and provides a comprehensive client-side Ruby API. It features command history, tab completion, channels, and more.
+
 
 That's a lot of heavy-duty verbiage, so let's break it down.
 
