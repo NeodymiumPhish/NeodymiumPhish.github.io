@@ -19,23 +19,23 @@ PowerShell is a wildly effective tool for managing Windows devices and networks.
 
 So, it looks like the only real question in all of this is what malware is responsible. Let's take a look at the sample before we go any further. 
 
-![[/images/BTLO_PowerShell_1/powershell1.png]]
+![](/images/BTLO_PowerShell_1/powershell1.png)
 
 First, we see `POwersheLL  -w hidden -ENCOD`. PowerShell accepts case-insensitive input, so we can ignore the random capitalization in this section, and just look at what it's telling PowerShell to do...
 
 `-w hidden` means to open a hidden PowerShell window (invisible to the user), and `-ENCOD` is just shorthand for `encoded`. PowerShell will also autocomplete flagged inputs. In fact, our friend could have just as easily written this as `-e` and it would have understood that the script was encoded with Base64. The `-e` flag means PowerShell needs to decade Base64 before executing the script, so let's pop this into CyberChef and see what we get.
 
-![[images/BTLO_PowerShell_1/powershell2.png]]
+![](images/BTLO_PowerShell_1/powershell2.png)
 
 Looks like some variable declarations, so we're on the right track! We just need to remove the null bytes (there's a recipe in CyberChef for that), then bring this back over to our text editor for analysis.
 
-![[images/BTLO_PowerShell_1/powershell3.png]]
+![](images/BTLO_PowerShell_1/powershell3.png)
 
 This looks messy. At first glance, we can see this is a single-line script which utilizes semi-colons to keep from needing to create new lines. Since a new line has the same effect as a semi-colon, likes conduct a find and replace. In Atom, the simple way to do this is with a regex rule to insert a `\n`, then select `Replace all`.
 
-![[images/BTLO_PowerShell_1/powershell4.png]]
+![](images/BTLO_PowerShell_1/powershell4.png)
 
-![[images/BTLO_Powershell_1/powershell5.png]]
+![](images/BTLO_Powershell_1/powershell5.png)
 
 Much better! 
 
@@ -63,7 +63,7 @@ For this question, it's giving us a pretty big hint with the HOME reference. We 
 
 We _could_ try to deobfuscate this on our own. As an Air Force veteran, I'm a big fan of the old "smarter; not harder" adage, though, so we're going to mix things up a bit. We know that `$HOME` is already going to be `\HOME\` in our answer, and the `+` tells PowerShell to concatenate the following text to it, so let's just put the following data (starting with `(('{'+'0}Db_bh'`) directly into PowerShell and let it do the deobfuscation for us! 
 
-![[images/BTLO_PowerShell_1/powershell6.png]]
+![](images/BTLO_PowerShell_1/powershell6.png)
 
 If this is correct, the correct answer should be `\HOME\Db_bh30\Yf5be5g`
 
@@ -111,7 +111,7 @@ Fortunately, we previously ran `$B9fhbyv` through PowerShell and decoded the lis
 
 You can fairly easily pull out bits from this script that are unlikely to change, and then run a search to see whether these have been seen before. For this, I took the created directory and ran that across Google to see if anything glaring showed up:
 
-![[images/BTLO_PowerShell_1/powershell7.png]]
+![](images/BTLO_PowerShell_1/powershell7.png)
 
 Welp, this has definitely been seen before! Tria.ge indicates this is an emotet sample. Easy-peasy!
 __Solved!__
