@@ -18,7 +18,7 @@ PowerShell is a wildly effective tool for managing Windows devices and networks.
 
 So, it looks like the only real question in all of this is what malware is responsible. Let's take a look at the sample before we go any further. 
 
-![[images/BTLO_PowerShell_1/powershell1.png]]
+![[/images/BTLO_PowerShell_1/powershell1.png]]
 
 First, we see `POwersheLL  -w hidden -ENCOD`. PowerShell accepts case-insensitive input, so we can ignore the random capitalization in this section, and just look at what it's telling PowerShell to do...
 
