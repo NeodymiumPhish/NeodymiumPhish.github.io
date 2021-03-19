@@ -11,6 +11,7 @@ PowerShell is a wildly effective tool for managing Windows devices and networks.
 {:.no_toc}
 
 1. TOC
+
 {.toc}
 
 ## Background
