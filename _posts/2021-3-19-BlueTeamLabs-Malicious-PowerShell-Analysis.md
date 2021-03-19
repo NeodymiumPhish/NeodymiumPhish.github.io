@@ -1,6 +1,6 @@
 ---
 layout: post
-title: BTLO Write-Up -- Malicious PowerShell Analysis
+title: Blue Team Labs Online -- Malicious PowerShell Analysis
 excerpt_separator: <!--more-->
 categories: [Instructional, "Security Operations"]
 ---
