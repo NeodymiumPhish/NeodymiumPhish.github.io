@@ -7,6 +7,9 @@ categories: [Instructional, "Security Operations"]
 
 PowerShell is a wildly effective tool for managing Windows devices and networks. Naturally, this also means that it can be used by threat actors to exploit targets. One big tactic used to side-step Endpoint Detection and Response, as well as forensic analysis after the fact, is code obfuscation. BTLO has a [great challenge (medium difficulty)](https://blueteamlabs.online/home/challenge/3) for analysing malicious PowerShell, so let's dig into it! 
 
+<!--more-->
+
+
 ## Table of Contents
 {:.no_toc}
 
