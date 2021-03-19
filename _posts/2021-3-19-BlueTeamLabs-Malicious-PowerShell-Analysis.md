@@ -10,9 +10,9 @@ PowerShell is a wildly effective tool for managing Windows devices and networks.
 ## Table of Contents
 {:.no_toc}
 
-1. TOC
 
-{.toc}
+1. TOC
+{:toc}
 
 ## Background
 > Recently the networks of a large company named GothamLegend were compromised after an employee opened a phishing email containing malware. The damage caused was critical and resulted in business-wide disruption. GothamLegend had to reach out to a third-party incident response team to assist with the investigation. You are a member of the IR team - all you have is an encoded Powershell script. Can you decode it and identify what malware is responsible for this attack? Reading Material: https://malware.news/t/deobfuscating-powershell-putting-the-toothpaste-back-in-the-tube/23509
