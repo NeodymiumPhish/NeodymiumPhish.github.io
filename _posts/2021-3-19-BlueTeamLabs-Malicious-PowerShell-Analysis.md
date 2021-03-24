@@ -47,7 +47,7 @@ While my preference would be to start working to clean this up right off the bat
 ## Question 1
 > What security protocol is being used for the communication with a malicious domain?
 
-OK, so if it's about SSL, TLS, etc, here. Which protocol is the malware using to mask its communications. On line 8, we see this:
+OK, so it's asking about SSL, TLS, etc, here. Which protocol is the malware using to mask its communications. On line 8, we see this:
 
 ```powershell
   ( vARiaBLe  ("m"+"bu")  -VAlueoN  )::"sEcuRITYproT`o`c`ol" = ('T'+('ls'+'12'))
