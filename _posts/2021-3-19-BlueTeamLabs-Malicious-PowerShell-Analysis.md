@@ -34,7 +34,7 @@ Looks like some variable declarations, so we're on the right track! We just need
 
 ![](images/BTLO_PowerShell_1/powershell3.png)
 
-This looks messy. At first glance, we can see this is a single-line script which utilizes semi-colons to keep from needing to create new lines. Since a new line has the same effect as a semi-colon, likes conduct a find and replace. In Atom, the simple way to do this is with a regex rule to insert a `\n`, then select `Replace all`.
+This looks messy. At first glance, we can see this is a single-line script which utilizes semi-colons to keep from needing to create new lines. Since a new line has the same effect as a semi-colon, let's conduct a find and replace. In Atom, the simple way to do this is with a regex rule to insert a `\n`, then select `Replace all`.
 
 ![](images/BTLO_PowerShell_1/powershell4.png)
 
