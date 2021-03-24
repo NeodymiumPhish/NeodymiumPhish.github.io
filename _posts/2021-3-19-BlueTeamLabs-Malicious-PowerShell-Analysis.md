@@ -26,7 +26,7 @@ So, it looks like the only real question in all of this is what malware is respo
 
 First, we see `POwersheLL  -w hidden -ENCOD`. PowerShell accepts case-insensitive input, so we can ignore the random capitalization in this section, and just look at what it's telling PowerShell to do...
 
-`-w hidden` means to open a hidden PowerShell window (invisible to the user), and `-ENCOD` is just shorthand for `encoded`. PowerShell will also autocomplete flagged inputs. In fact, our friend could have just as easily written this as `-e` and it would have understood that the script was encoded with Base64. The `-e` flag means PowerShell needs to decade Base64 before executing the script, so let's pop this into CyberChef and see what we get.
+`-w hidden` means to open a hidden PowerShell window (invisible to the user), and `-ENCOD` is just shorthand for `encoded`. PowerShell will also autocomplete flagged inputs. In fact, our friend could have just as easily written this as `-e` and it would have understood that the script was encoded with Base64. The `-e` flag means PowerShell needs to decode Base64 before executing the script, so let's pop this into CyberChef and see what we get.
 
 ![](images/BTLO_PowerShell_1/powershell2.png)
 
