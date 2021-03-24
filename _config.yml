@@ -37,6 +37,8 @@ markdown: kramdown
 highlighter: rouge
 encoding: utf-8
 
+plugins:
+  - jekyll-feed
 # Front matter defaults
 defaults:
 - scope:
