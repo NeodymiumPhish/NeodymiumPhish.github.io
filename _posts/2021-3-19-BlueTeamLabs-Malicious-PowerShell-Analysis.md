@@ -5,7 +5,7 @@ excerpt_separator: <!--more-->
 categories: [Instructional, "Security Operations"]
 ---
 
-PowerShell is a wildly effective tool for managing Windows devices and networks. Naturally, this also means that it can be used by threat actors to exploit targets. One big tactic used to side-step Endpoint Detection and Response, as well as forensic analysis after the fact, is code obfuscation. BTLO has a [great challenge (medium difficulty)](https://blueteamlabs.online/home/challenge/3) for analysing malicious PowerShell, so let's dig into it! 
+PowerShell is a wildly effective tool for managing Windows devices and networks. Naturally, this also means that it can be used by threat actors to exploit targets. One big tactic used to side-step Endpoint Detection and Response, as well as forensic analysis after the fact, is code obfuscation. BTLO has a [great challenge (medium difficulty)] for analysing malicious PowerShell, so let's dig into it! 
 
 <!--more-->
 
@@ -18,7 +18,7 @@ PowerShell is a wildly effective tool for managing Windows devices and networks.
 {:toc}
 
 # Background
-> Recently the networks of a large company named GothamLegend were compromised after an employee opened a phishing email containing malware. The damage caused was critical and resulted in business-wide disruption. GothamLegend had to reach out to a third-party incident response team to assist with the investigation. You are a member of the IR team - all you have is an encoded Powershell script. Can you decode it and identify what malware is responsible for this attack? Reading Material: https://malware.news/t/deobfuscating-powershell-putting-the-toothpaste-back-in-the-tube/23509
+> Recently the networks of a large company named GothamLegend were compromised after an employee opened a phishing email containing malware. The damage caused was critical and resulted in business-wide disruption. GothamLegend had to reach out to a third-party incident response team to assist with the investigation. You are a member of the IR team - all you have is an encoded Powershell script. Can you decode it and identify what malware is responsible for this attack? [Reading Material]
 
 So, it looks like the only real question in all of this is what malware is responsible. Let's take a look at the sample before we go any further. 
 
@@ -77,12 +77,12 @@ __Solved!__
 
 Now that we have the directory created by the malware, finding this should be a breeze. Looking at lines 9-11, we see 3 variable declarations, but only one is reused later in the script. Based on the obfuscation, it's possible that the other who are referenced within other obfuscated lines. However, since `$Swrp6tc` shows up in full in line 12, which also references the `$HOME` directory, I'll start there and see what we got. 
 ```powershell
-$Imd1yck=$HOME+((('UO'+'H'+'Db_')+'b'+('h3'+'0UO')+('HY'+'f')+('5be5'+'g'+'UOH'))."ReP`lACe"(('U'+'OH'),[StrInG][chAr]92))+$Swrp6tc+(('.'+'dl')+'l')
+$Imd1yck=$HOME+((('UO'+'H'+'Db_')+'b'+('h3'+'0UO')+('HY'+'f')+('5be5'+'g'+'UOH'))."ReP`lACe"(('U'+'OH'),[StrInG]  [chAr]92))+$Swrp6tc+(('.'+'dl')+'l')
 ```
 
 We see `$HOME` being concatenated against another long obfuscated string, followed by `.Replace`, then another concatenation against our variable from line 10 + '.dll'. I'm going to run the first string through PowerShell to see whether it's the same directory from Question 2.
 ```powershell
-PS /share/Malicious PowerShell Analysis/BTLO PowerShell Analysis> echo $((('UO'+'H'+'Db_')+'b'+('h3'+'0UO')+('HY'+'f')+('5be5'+'g'+'UOH'))."ReP`lACe"(('U'+'OH'),[StrInG][chAr]92))
+PS /share/Malicious PowerShell Analysis/BTLO PowerShell Analysis> echo $((('UO'+'H'+'Db_')+'b'+('h3'+'0UO')+('HY'+'f')+('5be5'+'g'+'UOH'))."ReP`lACe"(('U'+'OH'),[StrInG]  [chAr]92))
 \Db_bh30\Yf5be5g\
 ```
 Yep, that checks out, so we know that the rest of the variable should just be the name of the file (which it's pulling from `$Swrp6tc`) followed by `.dll`
@@ -122,3 +122,8 @@ __Solved!__
 I hope that was understandable (and to some extent enjoyable). If you have any real-world obfuscated PowerShell and would be comfortable sharing it with me so I could do this again with it, please reach out, preferably via Twitter (handle at the bottom).
 
 Take care!
+
+
+
+[great challenge (medium difficulty)]: https://blueteamlabs.online/home/challenge/3
+[Reading Material]: https://malware.news/t/deobfuscating-powershell-putting-the-toothpaste-back-in-the-tube/23509
