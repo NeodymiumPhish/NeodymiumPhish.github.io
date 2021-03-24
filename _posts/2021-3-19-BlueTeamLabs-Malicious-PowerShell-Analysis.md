@@ -42,7 +42,7 @@ This looks messy. At first glance, we can see this is a single-line script which
 
 Much better! 
 
-While my preference would be to start working to clean this up right off te bat, we already know we have some questions to answer, so let's look back at the challenge and see what it wants us to find.
+While my preference would be to start working to clean this up right off the bat, we already know we have some questions to answer, so let's look back at the challenge and see what it wants us to find.
 
 ## Question 1
 > What security protocol is being used for the communication with a malicious domain?
