@@ -1,41 +1,30 @@
 ---
 layout: default
 ---
+<section class="post">
 
-<article class="post detailed">
-  <h1>{{ page.title }}</h1>
+    <header class="post-header">
+        <h1 class="post-title">
+            {% if page.external_url %}
+            <a href="{{ page.external_url }}" class='article-link'>{{ page.title }}{{ site.external-url-indicator }}</a>
+            {% else %}
+            {{ page.title }}
+            {% endif %}
+            {% if page.draft %} <span class="draft">Draft</span> {% endif %}
+        </h1>
 
-  <div>
-    <p class="author_title">{{site.author}}  ·  {{ page.date | date: "%B %e, %Y" }}</p>
-    {% if page.last_modified_at %}
-    <p class="author_title" datetime="{{ page.last_modified_at | date_to_xmlschema }}">(Updated: {{ page.last_modified_at | date: "%b %-d, %Y" }})</p>
-    {% endif %}
-    <div class="post-tags">
-      {% if post %}
-        {% assign categories = post.categories %}
-      {% else %}
-        {% assign categories = page.categories %}
-      {% endif %}
-      {% for category in categories %}
-        <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
-        {% unless forloop.last %}&nbsp;{% endunless %}
-      {% endfor %}
-    </div>
-  </div>
+        <h4 class="post-author">
+            {% if page.author %} {{page.author}} {% else %}
+            {% if site.author.name %} {{site.author.name}} {% else %} Kaushik Gopal{% endif %}
+            {% endif %}
+        </h4>
 
+    </header>
 
+    <article class="post-content">
+        {{ content }}
+    </article>
 
-  <div class="entry">    
-    {{ content }}
-  </div>
+    {% include meta.html %}
 
-  <div>
-    <p><span class="share-box">Share:</span> <a href="http://twitter.com/share?text={{ page.title }}&url={{site.url}}{{page.url}}" target="_blank">Twitter</a>, <a href="https://www.facebook.com/sharer.php?u={{site.url}}{{page.url}}" target="_blank">Facebook</a>, <a href="https://www.reddit.com/submit?url={{site.url}}{{page.url}}&title={{ page.title }}">Reddit</a></p>
-  </div>
-
-  <!--<div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>-->
-
-  {% include disqus.html %}
-</article>
+</section>
