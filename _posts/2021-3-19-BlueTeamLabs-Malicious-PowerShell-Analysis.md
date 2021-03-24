@@ -128,6 +128,8 @@ Welp, this has definitely been seen before! Tria.ge indicates this is an emotet 
 
 __Solved!__
 
+---
+
 I hope that was understandable (and to some extent enjoyable). If you have any real-world obfuscated PowerShell and would be comfortable sharing it with me so I could do this again with it, please reach out, preferably via Twitter (handle at the bottom).
 
 Take care!
