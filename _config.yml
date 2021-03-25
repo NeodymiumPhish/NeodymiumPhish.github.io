@@ -66,6 +66,7 @@ exclude:
  - .git/
  - .ruby-version
  - .henry-jekyll.gemspec
+ - .obsidian
 #   - gemfiles/
 #   - node_modules/
 #   - vendor/bundle/
