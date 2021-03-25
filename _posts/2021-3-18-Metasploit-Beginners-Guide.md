@@ -177,7 +177,7 @@ Let's take an example and see how much better it is using the search function:
 
 #### Search Example (Hard Way)
 
-Let's use the Metasploitable2 VM as an example case.  In this example, MS2 is running on 192.168.86.244 on my network.  Once it's up and running, I'm going to scan it with nmap using some of the options from [DNO Collab's Kali Tools - Nmap page](https://collab.definitelynotosi.com/kalitools-nmap?view).  
+Let's use the Metasploitable2 VM as an example case.  In this example, MS2 is running on 192.168.86.244 on my network.  Once it's up and running, I'm going to scan it with nmap using some of the options from [my Beginner's Guide to Nmap](/Nmap-Beginners-Guide).  
 
 ```
 msf5 > nmap -F -A -T5 -vv 192.168.86.244 -oN nmap_example.txt
@@ -643,4 +643,4 @@ Sources:
 
 [Metasploit Unleashed](https://www.offensive-security.com/metasploit-unleashed)
 
-[Exploit-DB's "Easiest Metasploit Guide You'll Ever Use"](https://www.exploit-db.com/docs/english/44040-the-easiest-metasploit-guide-you'll-ever-read.pdf)
+[Exploit-DB's "Easiest Metasploit Guide You'll Ever Use"](https://www.exploit-db.com/docs/english/44040-the-easiest-metasploit-guide-you%E2%80%99ll-ever-read.pdf)
