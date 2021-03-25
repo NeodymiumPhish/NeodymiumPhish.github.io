@@ -20,7 +20,7 @@ In order to prepare your environment for the competition, ensure that you downlo
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * [VirtualBox Extension Pack](https://download.virtualbox.org/virtualbox/6.1.18/Oracle_VM_VirtualBox_Extension_Pack-6.1.18.vbox-extpack)
 
-Secondly, once you have install VirtualBox, you need to open Command Prompt (or Terminal on MacOS) and run the following command:
+Secondly, once you have installed VirtualBox, you need to open Command Prompt (or Terminal on MacOS) and run the following command:
 __Windows:__
 ```cmd
 "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" dhcpserver add --netname ctf --ip 10.10.10.1 --netmask 255.255.255.0 --lowerip 10.10.10.100 --upperip 10.10.10.200 --enable
