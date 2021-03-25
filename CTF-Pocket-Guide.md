@@ -64,8 +64,7 @@ Hydra is a great tool for brute-forcing passwords. xHydra is the easier-to-use t
 ---
 ## John The Ripper
 John is an excellent resource for cracking passwords on local files. There are many modules for John, such as:
-`7z2john` - provides a John-crackable hash from a 7-zip archive
-`pdf2john`, `bitcoin2john`, and `ssh2john` all do the same for their respective file types.
+`7z2john`: which provides a John-crackable hash from a 7-zip archive. `pdf2john`, `bitcoin2john`, and `ssh2john` all do the same for their respective file types.
 Once you have a file hash, you can run `john --wordlist=<location of wordlist file> <hash file name>` to crack the hash
 
 ---
