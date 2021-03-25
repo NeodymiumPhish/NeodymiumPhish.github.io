@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beginner's Guide to Nmap
+title: Beginner's Guide | Nmap
 categories: [Instructional, Metasploit]
 tags: [Guide]
 ---

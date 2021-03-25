@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beginner's Guide to Metasploit
+title: Beginner's Guide | Metasploit
 excerpt_separator: <!--more-->
 categories: [Instructional, Metasploit]
 tags: [Guide]
