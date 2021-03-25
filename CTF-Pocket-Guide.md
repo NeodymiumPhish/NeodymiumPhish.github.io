@@ -40,4 +40,4 @@ permalink: /CTF-Pocket-Guide/
 `sudo -l` - Lists commands that the current Linux user can execute with sudo privileges
 `bash -p` - With access to the bash command as sudo (for example, if you are able to copy `/bin/bash` to /tmp), `bash -p` will run bash without a user id set, meaning you can execute commands at root level[^1].
 
-[^1]: This is probably the wrong way to explain it. The `man` page says `If the -p option is supplied at invocation, the startup behavior is the same, but the effective user id is not reset.`. I interpreted this to mean that it effectively runs with root privileges.
+[^1]: This is probably the wrong way to explain it. The `man` page says "If the -p option is supplied at invocation, the startup behavior is the same, but the effective user id is not reset.". I interpreted this to mean that it effectively runs with root privileges.
