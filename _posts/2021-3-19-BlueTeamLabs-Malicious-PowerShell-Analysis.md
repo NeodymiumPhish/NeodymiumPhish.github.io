@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blue Team Labs Online -- Malicious PowerShell Analysis
+title: Blue Team Labs Online | Malicious PowerShell Analysis
 categories: [Instructional, "Security Operations"]
 tags: [Walkthrough, Blue Team]
 ---
