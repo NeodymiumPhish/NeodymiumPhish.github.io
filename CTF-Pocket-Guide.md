@@ -85,7 +85,9 @@ Some CTFs provide you a method of gaining a shell with severe limits on availabl
 There are many useful bash commands that can be used/abused to gain better access within an environment.
 
 `find / -user root -perm -4000 -print 2>/dev/null` - Displays all files that are owned by root but can be executed by any user. These aren't all exploitable, but some tools, like Vim, Nmap, bash, and nano, can be used to allow privilege escalation. For useful examples of how these and other executables can be abused to escalate privileges, [check here](https://pentestlab.blog/category/privilege-escalation/).
+
 `sudo -l` - Lists commands that the current Linux user can execute with sudo privileges
+
 `bash -p` - With access to the bash command as sudo (for example, if you are able to copy `/bin/bash` to /tmp), `bash -p` will run bash without a user id set, meaning you can execute commands at root level[^2].
 
 [^2]: This is probably the wrong way to explain it. The `man` page says "If the -p option is supplied at invocation, the startup behavior is the same, but the effective user id is not reset.". I interpreted this to mean that it effectively runs with root privileges.
