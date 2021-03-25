@@ -38,12 +38,14 @@ This will create a network that prevents you from accidentally scanning/interact
 Next, download your attack system of choice. This can be whatever you like, although the recommended system (in case you want to make it easy to Google for instructions) in Kali. Here are a few links:
 
 [Kali VirtualBox Image](https://images.kali.org/virtual-images/kali-linux-2021.1-vbox-amd64.ova) - Default login: kali/kali
+
 [ParrotOS VirtualBox Image](https://download.parrot.sh/parrot/iso/4.10/Parrot-home-4.10_virtual.ova) - Default login: user/toor
+
 [SANS Slingshot OS (Requires SANS Account)](https://www.sans.org/slingshot-vmware-linux/download) - Default login: slingshot/slingshot
 
 Once the VM is installed, turn off the VM and open the VM's settings in VirtualBox. Under `Network`, make sure one of your Adapters is set according to the image below[^1]:
 
-![](assets/img/Pasted%20image%2020210325145006.png)
+![](/assets/img/Pasted%20image%2020210325145006.png)
 
 [^1]: If you want to be able to get to the internet from your attack box, for things like Googling issues, etc, you'll want to set one adapter to `Attached to: NAT`. For example, I keep my Parrot OS VM set with `Adapter 1: NAT` and `Adapter 2: Internal Network - ctf`
 
