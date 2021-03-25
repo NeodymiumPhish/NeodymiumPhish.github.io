@@ -54,7 +54,7 @@ Once the VM is installed, turn off the VM and open the VM's settings in VirtualB
 Use Nmap or Nessus to scan for open ports/services. Check out my [Beginner's Guide to Nmap](/Nmap-Beginners/Guide/) for some common commands and tips!
 
 ---
-### Directory Searches
+## Directory Searches
 Dirsearch, GoBuster, DirBuster are all tools to help you enumerate directories and pages visible on a given website. For example, using lists from the `/usr/share/dirbuster/wordlists` directory is usually good enough for finding the majority of useful directories on a page.
 
 ---
