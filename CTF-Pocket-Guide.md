@@ -4,12 +4,52 @@ title: CTF Pocket Guide
 permalink: /CTF-Pocket-Guide/
 ---
 
-# CTF Pocket Guide
+CTF Pocket Guide
+===
+
 > Keep these tools handy and check their man pages for help if you need ideas to get you through obtaining flags throughout the CTF!
 
 ---
+# Setup Virtual Environment
+
+__Dragons__, the Target VM will be available for download on the day before the CTF, and the password to decrypt the file will become available the morning of the event. 
+
+## VirtualBox & Internal Network
+In order to prepare your environment for the competition, ensure that you download and install the following:
+
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* [VirtualBox Extension Pack](https://download.virtualbox.org/virtualbox/6.1.18/Oracle_VM_VirtualBox_Extension_Pack-6.1.18.vbox-extpack)
+
+Secondly, once you have install VirtualBox, you need to open Command Prompt (or Terminal on MacOS) and run the following command:
+__Windows:__
+```cmd
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" dhcpserver add --netname ctf --ip 10.10.10.1 --netmask 255.255.255.0 --lowerip 10.10.10.100 --upperip 10.10.10.200 --enable
+```
+
+__Mac:__
+```bash
+vboxmanage dhcpserver add --netname ctf --ip 10.10.10.1 --netmask 255.255.255.0 --lowerip 10.10.10.100 --upperip 10.10.10.200 --enable
+```
+
+This will create a network that prevents you from accidentally scanning/interacting with your home network/devices. 
+
+---
+## Attack Box
+Next, download your attack system of choice. This can be whatever you like, although the recommended system (in case you want to make it easy to Google for instructions) in Kali. Here are a few links:
+
+[Kali VirtualBox Image](https://images.kali.org/virtual-images/kali-linux-2021.1-vbox-amd64.ova) - Default login: kali/kali
+[ParrotOS VirtualBox Image](https://download.parrot.sh/parrot/iso/4.10/Parrot-home-4.10_virtual.ova) - Default login: user/toor
+[SANS Slingshot OS (Requires SANS Account)](https://www.sans.org/slingshot-vmware-linux/download) - Default login: slingshot/slingshot
+
+Once the VM is installed, turn off the VM and open the VM's settings in VirtualBox. Under `Network`, make sure one of your Adapters is set according to the image below[^1]:
+
+![](assets/img/Pasted%20image%2020210325145006.png)
+
+[^1]: If you want to be able to get to the internet from your attack box, for things like Googling issues, etc, you'll want to set one adapter to `Attached to: NAT`. For example, I keep my Parrot OS VM set with `Adapter 1: NAT` and `Adapter 2: Internal Network - ctf`
+
+---
 ## Port Scans
-Use Nmap or Nessus to scan for open ports/services
+Use Nmap or Nessus to scan for open ports/services. Check out my [Beginner's Guide to Nmap](/Nmap-Beginners/Guide/) for some common commands and tips!
 
 ---
 ### Directory Searches
@@ -45,6 +85,6 @@ There are many useful bash commands that can be used/abused to gain better acces
 
 `find / -user root -perm -4000 -print 2>/dev/null` - Displays all files that are owned by root but can be executed by any user. These aren't all exploitable, but some tools, like Vim, Nmap, bash, and nano, can be used to allow privilege escalation. For useful examples of how these and other executables can be abused to escalate privileges, [check here](https://pentestlab.blog/category/privilege-escalation/).
 `sudo -l` - Lists commands that the current Linux user can execute with sudo privileges
-`bash -p` - With access to the bash command as sudo (for example, if you are able to copy `/bin/bash` to /tmp), `bash -p` will run bash without a user id set, meaning you can execute commands at root level[^1].
+`bash -p` - With access to the bash command as sudo (for example, if you are able to copy `/bin/bash` to /tmp), `bash -p` will run bash without a user id set, meaning you can execute commands at root level[^2].
 
-[^1]: This is probably the wrong way to explain it. The `man` page says "If the -p option is supplied at invocation, the startup behavior is the same, but the effective user id is not reset.". I interpreted this to mean that it effectively runs with root privileges.
+[^2]: This is probably the wrong way to explain it. The `man` page says "If the -p option is supplied at invocation, the startup behavior is the same, but the effective user id is not reset.". I interpreted this to mean that it effectively runs with root privileges.
