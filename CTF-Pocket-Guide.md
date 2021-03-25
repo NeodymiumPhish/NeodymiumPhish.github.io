@@ -1,8 +1,7 @@
 ---
 layout: post
 title: CTF Pocket Guide
-categories: [Instructional]
-tags: [Guide]
+permalink: /CTF-Pocket-Guide/
 ---
 
 # CTF Pocket Guide
@@ -20,7 +19,7 @@ tags: [Guide]
 ### John The Ripper
 > John is an excellent resource for cracking passwords on local files. There are many modules for John, such as:
 > `7z2john` - provides a John-crackable hash from a 7-zip archive
-> `pdf2john`, `bitcoin2john`, and `ssh2john` all do the same for their respective file types. 
+> `pdf2john`, `bitcoin2john`, and `ssh2john` all do the same for their respective file types.
 > Once you have a file hash, you can run `john --wordlist=<location of wordlist file> <hash file name>` to crack the hash
 
 
@@ -42,5 +41,3 @@ tags: [Guide]
 `bash -p` - With access to the bash command as sudo (for example, if you are able to copy `/bin/bash` to /tmp), `bash -p` will run bash without a user id set, meaning you can execute commands at root level[^1].
 
 [^1]: This is probably the wrong way to explain it. The `man` page says `If the -p option is supplied at invocation, the startup behavior is the same, but the effective user id is not reset.`. I interpreted this to mean that it effectively runs with root privileges.
-
-
