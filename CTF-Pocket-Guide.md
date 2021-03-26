@@ -3,6 +3,7 @@ layout: post
 title: CTF Pocket Guide
 redirect_from:
     - CTF/
+	- ctf/
 ---
 
 CTF Pocket Guide
