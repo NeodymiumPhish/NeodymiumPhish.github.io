@@ -1,7 +1,6 @@
 ---
 layout: post
 title: CTF Pocket Guide
-permalink: /CTF-Pocket-Guide/
 redirect_from:
     - CTF/
 ---
