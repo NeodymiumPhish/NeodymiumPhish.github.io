@@ -12,7 +12,7 @@ CTF Pocket Guide
 ---
 # Setup Virtual Environment
 
-__Dragons__, the Target VM will be available for download on the day before the CTF, and the password to decrypt the file will become available the morning of the event. 
+__Dragons__, the Target VM is available to download [here](https://transfer.sh/T54cl/3FIS_CTF.zip), and the password to decrypt the file will become available the morning of the event. Please download the file in advance, so we can expedite the setup process before the event begins.
 
 ## VirtualBox & Internal Network
 In order to prepare your environment for the competition, ensure that you download and install the following:
