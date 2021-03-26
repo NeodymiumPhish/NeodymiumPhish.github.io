@@ -6,8 +6,9 @@ redirect_from:
 	- ctf/
 ---
 
-CTF Pocket Guide
-===
+# __CTF Pocket Guide__
+
+
 
 
 > Keep these tools handy and check their man pages for help if you need ideas to get you through obtaining flags throughout the CTF!
