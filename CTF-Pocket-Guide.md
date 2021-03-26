@@ -2,6 +2,8 @@
 layout: post
 title: CTF Pocket Guide
 permalink: /CTF-Pocket-Guide/
+redirect_from:
+    - CTF/
 ---
 
 CTF Pocket Guide
@@ -31,7 +33,7 @@ __Mac:__
 vboxmanage dhcpserver add --netname ctf --ip 10.10.10.1 --netmask 255.255.255.0 --lowerip 10.10.10.100 --upperip 10.10.10.200 --enable
 ```
 
-This will create a network that prevents you from accidentally scanning/interacting with your home network/devices. 
+This will create a network that prevents you from accidentally scanning/interacting with your home network/devices.
 
 ---
 ## Attack Box
