@@ -1,7 +1,8 @@
 ---
-layout: po
+layout: post
 title: CTF Pocket Guide
 categories: [Instructional]
+tags: [Guide]
 redirect_from:
     - CTF/
 	- ctf/
