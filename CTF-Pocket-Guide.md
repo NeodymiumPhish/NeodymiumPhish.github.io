@@ -47,7 +47,7 @@ Next, download your attack system of choice. This can be whatever you like, alth
 
 Once the VM is installed, turn off the VM and open the VM's settings in VirtualBox. Under `Network`, make sure one of your Adapters is set according to the image below[^1]:
 
-![](/assets/img/Pasted%20image%2020210325145006.png)
+<img class="tac" src="/assets/img/Pasted%20image%2020210325145006.png" />
 
 [^1]: If you want to be able to get to the internet from your attack box, for things like Googling issues, etc, you'll want to set one adapter to `Attached to: NAT`. For example, I keep my Parrot OS VM set with `Adapter 1: NAT` and `Adapter 2: Internal Network - ctf`
 
