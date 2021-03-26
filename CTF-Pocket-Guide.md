@@ -1,6 +1,7 @@
 ---
 layout: post
 title: CTF Pocket Guide
+categories: [Instructional]
 redirect_from:
     - CTF/
 	- ctf/
