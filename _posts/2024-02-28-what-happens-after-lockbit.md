@@ -4,7 +4,7 @@ title: What Happens After LockBit?
 ---
 
 <p align="center">
-  <img src="../public/2024-02-29/block-breaking-pieces.png" />
+  <img src="../public/2024-02-28/block-breaking-pieces.png" />
 </p>
 
 ## Operation Cronos
@@ -14,7 +14,7 @@ A lot's already been said about Operation Cronos and their actions taken against
 I want to talk about what happens next. What should we expect to see from LockBitSupp as he tried to recoup his significant losses ($100 Million+, ouch!)? Most importantly, how are other groups going to change or spawn as the debris settles? 
 
 <p align="center">
-    <img src="../public/2024-02-29/lockbit-defeated.png" />
+    <img src="../public/2024-02-28/lockbit-defeated.png" />
 </p>
 
 ## First, Let's Discuss the Future of LockBit. 
@@ -26,7 +26,7 @@ LockBitSupp has already brought site backups back online, with multiple new vict
 The real danger is in the level of OpSec future groups gain from watching Operation Cronos take place. We saw that LockBit maintained copious records about affiliate performance. Other RaaS groups may decide to anonymous or delete this data entirely. LockBitSupp staged his Bitcoin wallets in ways that made them accessible to law enforcement after taking control of his infrastructure. Other groups are more likely to direct their funds to cold storage or offsite addresses to disconnect them from their RaaS infrastructure as much as possible. Without a doubt, other groups are definitely going to ensure they have solid backups, so they can easily recreate their infrastructure in case they're ever hit by a Cronos-level takedown.
 
 <p align="center">
-    <img src="../public/2024-02-29/cyber-fork-in-road.png" />
+    <img src="../public/2024-02-28/cyber-fork-in-road.png" />
 </p>
 
 ## What Will "Non-Traditional" RaaS Look Like?
