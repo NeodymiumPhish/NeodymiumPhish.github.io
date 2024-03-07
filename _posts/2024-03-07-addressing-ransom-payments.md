@@ -21,7 +21,10 @@ To me, this is probably the most important question. Whether a ban is in place o
 
 We've already seen similar actions taken by recovery and IR firms before, with groups reaching out via the victim chat link over Tor and negotiating, then providing a price to their client that's significantly higher than the ransomware group's demand. An important factor here is that the third-party group would likely have to remain vague about their methodology for creating the decryption tool, and would not be from a country that's prohibited from paying a ransomware group's demands. 
 
-![](../public/2024-03-07/ransom_payment.jfif)
+<p align="center">
+  <img src="../public/2024-03-07/ransom_payment.jfif" />
+</p>
+
 
 # Is Banning Ransoms Enough?
 
@@ -47,7 +50,9 @@ I'm not saying all of this because I disagree with banning ransomware payment. P
 
 Organizations should make every effort to avoid payment of these ransoms. They need to consider the limited value ransomware groups get from holding the exfiltrate data, and include the fact that they hold the data regardless of whether their victims pay. The only value payment provides is that the ransomware group is more likely to keep the data off of their leak site, but with the proliferation of ransomware across all industries, the stigma of being hit by ransomware is far less meaningful than it used to be.
 
-![](../public/2024-03-07/do_not_pay.jfif)
+<p align="center">
+  <img src="../public/2024-03-07/do_not_pay.jfif" />
+</p>
 
 # In Conclusion
 
